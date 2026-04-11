@@ -52,7 +52,7 @@ namespace CybersecurityBot
 
         // --- BOT LOGIC METHODS ---
 
-        static string ProcessInput(string input)
+        static void ProcessInput(string input)
         {
             string cleanInput = input.ToLower().Trim();
 
@@ -64,13 +64,13 @@ namespace CybersecurityBot
             }
 
             // Requirement 4: Knowledge Base Responses
-            if (cleanInput.Contains("how are you"))
+            if (cleanInput.Contains("how are you")|| cleanInput.Contains("how are you doing?"))
             {
                 TypeEffect($" I am encrypted and running smoothly, {userName}!", ConsoleColor.Cyan);
             }
-            else if (cleanInput.Contains("purpose"))
+            else if (cleanInput.Contains("purpose")|| cleanInput.Contains("what do you do?"))
             {
-                TypeEffect(" My purpose is to help you navigate the web safely and prevent data breaches.", ConsoleColor.Cyan);
+                TypeEffect(" My purpose is to help you with cybersecurity saftey, naybe you'll learn something new.", ConsoleColor.Cyan);
             }
             else if (cleanInput.Contains("password"))
             {
@@ -94,23 +94,10 @@ namespace CybersecurityBot
             else
             {
                 // Requirement 5: Default response for unsupported queries
-                TypeEffect(" I didn't quite understand that. Could you rephrase your security question?", ConsoleColor.Gray);
+                TypeEffect(" I didn't quite understand that. Could you rephrase your question or ask about a different topic?", ConsoleColor.Gray);
             }
-            switch (input)
-            {
-                case "how are you?":
-                case "how are you doing?":
-                    return "I'm just a bot, but I'm always ready to help you stay safe online!";
+           
 
-                case "what’s your purpose?":
-                case "what do you do?":
-                    return "I’m here to provide cybersecurity awareness and help you protect yourself online!";
-
-                case "what can i ask you about?":
-                    return "You can ask me about password safety, phishing, safe browsing, and other cybersecurity tips.";
-            }
-
-            return "I didn’t quite understand that. Can you try rephrasing or ask about another cybersecurity topic?";
         }
         
 
