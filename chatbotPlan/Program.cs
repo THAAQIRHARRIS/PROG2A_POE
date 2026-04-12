@@ -5,34 +5,31 @@ namespace CybersecurityBot
 {
     class Program
     {
-        // Global variables for the bot
         static string userName = "User";
 
         static void Main(string[] args)
         {
-            // 1. Setup and Logo (Requirement 2 & 6)
+            // display ACSSI art logo
             Console.Clear();
             DisplayLogo();
 
-            // 2. Greeting and Name Capture (Requirement 3)
-            TypeEffect(" [SYSTEM] Initializing bootup protocall...", ConsoleColor.DarkGray);
-            TypeEffect(" [SYSTEM] Welcome to CyberBot.", ConsoleColor.Green);
-
+            TypeEffect(" Initializing bootup protocall...", ConsoleColor.DarkGray);
+            TypeEffect("  Welcome to CyberBot.", ConsoleColor.Green);
             Console.WriteLine("\n--------------------------------------------------");
             Console.Write(" IDENTIFY YOURSELF: ");
             userName = Console.ReadLine();
 
-            // Handle empty name
-            if (string.IsNullOrWhiteSpace(userName)) userName = "Agent";
+            // if the user doesnt enter a username
+            if (string.IsNullOrWhiteSpace(userName)) userName = "Anonomyus";
 
             TypeEffect($"\n Access Granted. Welcome, {userName}. I'm here to help you stay safe online.", ConsoleColor.Green);
             Console.WriteLine("--------------------------------------------------");
             TypeEffect(" You can ask me any question you may have on cybersecurity.");
             TypeEffect(" Type 'exit' to log out.");
 
-            // 3. Interaction Loop (Requirement 4 & 5)
-            bool isRunning = true;
-            while (isRunning)
+            // loop for the user exit
+            bool proRunning = true;
+            while (proRunning)
             {
                 Console.Write($"\n[{userName}] > ");
                 string userInput = Console.ReadLine();
@@ -40,30 +37,30 @@ namespace CybersecurityBot
                 if (userInput.ToLower() == "exit" || userInput.ToLower() == "quit")
                 {
                     TypeEffect(" Logging out... Stay secure.", ConsoleColor.Red);
-                    isRunning = false;
+                    proRunning = false;
                 }
                 else
                 {
-                    // Call the logic method to process input
+                    
                     ProcessInput(userInput);
                 }
             }
         }
 
-        // --- BOT LOGIC METHODS ---
+        
 
         static void ProcessInput(string input)
         {
             string cleanInput = input.ToLower().Trim();
 
-            // Requirement 5: Input Validation for empty entries
+            // If there is no input
             if (string.IsNullOrEmpty(cleanInput))
             {
                 TypeEffect(" [!] I didn't catch that. Please enter a query.", ConsoleColor.Yellow);
-                //return;
+               
             }
 
-            // Requirement 4: Knowledge Base Responses
+            // Responses to inputs
             if (cleanInput.Contains("how are you")|| cleanInput.Contains("how are you doing?"))
             {
                 TypeEffect($" I am encrypted and running smoothly, {userName}!", ConsoleColor.Cyan);
@@ -93,17 +90,14 @@ namespace CybersecurityBot
             }
             else
             {
-                // Requirement 5: Default response for unsupported queries
+                // if user enters input that doesnt contain any key word above
                 TypeEffect(" I didn't quite understand that. Could you rephrase your question or ask about a different topic?", ConsoleColor.Gray);
             }
-           
-
         }
-        
 
         static void DisplayLogo()
         {
-            // Requirement 2 & 6: Visual Elements
+            // ACSSI art logo code
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(@"
       ____________________________________________________________
@@ -118,7 +112,7 @@ namespace CybersecurityBot
 
         static void TypeEffect(string text, ConsoleColor color = ConsoleColor.White)
         {
-            // Requirement 6: Typing effect for conversational feel
+            
             Console.ForegroundColor = color;
             foreach (char c in text)
             {
