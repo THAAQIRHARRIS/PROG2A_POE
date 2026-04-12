@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using NAudio.Wave;
 
 namespace CybersecurityBot
 {
@@ -9,13 +10,16 @@ namespace CybersecurityBot
 
         static void Main(string[] args)
         {
-            // display ACSSI art logo
+            // display ACSSI art logo and playing the audio file
             Console.Clear();
             DisplayLogo();
+            PlayStartupSound();
 
             TypeEffect(" Initializing bootup protocall...", ConsoleColor.DarkGray);
-            TypeEffect("  Welcome to CyberBot.", ConsoleColor.Green);
+            TypeEffect(" Welcome to CyberBot.", ConsoleColor.Green);
             Console.WriteLine("\n--------------------------------------------------");
+            
+
             Console.Write(" IDENTIFY YOURSELF: ");
             userName = Console.ReadLine();
 
@@ -121,6 +125,35 @@ namespace CybersecurityBot
             }
             Console.WriteLine();
             Console.ResetColor();
+        }
+
+        static void PlayStartupSound() // audio greeting for the user
+        {
+            Thread soundThread = new Thread(() =>
+            {
+                try
+                {
+                    using (var audioFile = new AudioFileReader("CyberBotgreeting.wav"))
+                    using (var outputDevice = new WaveOutEvent())
+                    {
+                        outputDevice.Init(audioFile);
+                        outputDevice.Play();
+
+                        
+                        while (outputDevice.PlaybackState == PlaybackState.Playing)
+                        {
+                            Thread.Sleep(100);
+                        }
+                    }
+                }
+                catch
+                {
+                 
+                }
+            });
+
+            soundThread.IsBackground = true; 
+            soundThread.Start();
         }
     }
 }
