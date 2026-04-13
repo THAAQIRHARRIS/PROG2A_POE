@@ -105,12 +105,13 @@ namespace CybersecurityBot
             // ACSSI art logo code
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine(@"
-      ____________________________________________________________
-     |        CCCC Y   Y BBBB  EEEEE RRRRR  BBBB  OOOOO TTTTTTT   |
-     |    [#] C     Y Y  B   B E     R    R B   B O   O    T      |
-     |  PART1 C      Y   BBBBB EEEEE RRRRR  BBBBB O   O    T      |
-     |        C      Y   B   B E     R   R  B   B O   O    T      |
-     |________CCCC___Y___BBBBB_EEEEE_R____R_BBBBB_OOOOO____T______|
+      __________________________________________________________________________
+     |        |CCCC||Y|   |Y||BBBB| |EEEEE| |RRRRR|  |BBBB| |OOOOO| |TTTTTTT|   |
+     |    [#] |C|    |Y| |Y| |B| |B||E|     |R|  |R| |B| |B||O| |O|    |T|      |
+     |  PART1 |C|      |Y|   |BBBBB||EEEEE| |RRRRR|  |BBBBB||O| |O|    |T|      |
+     |        |C|      |Y|   |B| |B||E|     |R|  |R| |B| |B||O| |O|    |T|      |
+     |        |CCCC|   |Y|   |BBBB| |EEEEE| |R|   |R||BBBB| |OOOOO|    |T|      |
+     |__________________________________________________________________________|
             ");
             Console.ResetColor();
         }
