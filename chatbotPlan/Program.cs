@@ -16,7 +16,7 @@ namespace CybersecurityBot
             PlayStartupSound();
 
             TypeEffect(" Initializing bootup protocall...", ConsoleColor.DarkGray);
-            TypeEffect(" Welcome to CyberBot.", ConsoleColor.Green);
+            TypeEffect(" Welcome to CyberBot.", ConsoleColor.White);
             Console.WriteLine("\n--------------------------------------------------");
             
 
@@ -26,7 +26,7 @@ namespace CybersecurityBot
             // if the user doesnt enter a username
             if (string.IsNullOrWhiteSpace(userName)) userName = "Anonomyus";
 
-            TypeEffect($"\n Access Granted. Welcome, {userName}. I'm here to help you stay safe online.", ConsoleColor.Red);
+            TypeEffect($"\n Access Granted. Welcome, {userName}. I'm here to help you stay safe online.", ConsoleColor.White);
             Console.WriteLine("--------------------------------------------------");
             TypeEffect(" You can ask me any question you may have on cybersecurity.");
             TypeEffect(" Type 'exit' to log out.");
@@ -55,52 +55,45 @@ namespace CybersecurityBot
 
         static void ProcessInput(string input)
         {
-            string cleanInput = input.ToLower().Trim();
+            string userInput = input.ToLower().Trim();
 
             // If there is no input
-            if (string.IsNullOrEmpty(cleanInput))
+            if (string.IsNullOrEmpty(userInput))
             {
                 TypeEffect(" I didn't catch that. Please enter a query.", ConsoleColor.Yellow);
                
             }
 
             // Responses to inputs
-            if (cleanInput.Contains("how are you") || cleanInput.Contains("how are you doing?"))
+            if (userInput.Contains("how are you") || userInput.Contains("how are you doing?"))
             {
                 TypeEffect($" I am good and running smoothly, {userName}!", ConsoleColor.Red);
             }
-            else if (cleanInput.Contains("purpose") || cleanInput.Contains("what do you do?"))
+            else if (userInput.Contains("purpose") || userInput.Contains("what do you do?"))
             {
                 TypeEffect(" My purpose is to help you with cybersecurity saftey, naybe you'll learn something new.", ConsoleColor.Red);
             }
-            else if (cleanInput.Contains("password"))
+            else if (userInput.Contains("password"))
             {
                 TypeEffect(" Use a unique passphrase of at least 12 characters. Avoid birthdays!", ConsoleColor.Red);
             }
-            else if (cleanInput.Contains("phishing"))
+            else if (userInput.Contains("phishing"))
             {
                 TypeEffect(" Phishing often uses 'urgent' language. Never click links from unknown senders.", ConsoleColor.Red);
             }
-            else if (cleanInput.Contains("browsing") || cleanInput.Contains("safe"))
+            else if (userInput.Contains("browsing") || userInput.Contains("safe"))
             {
                 TypeEffect(" Always check for the HTTPS padlock before entering personal information.", ConsoleColor.Red);
             }
-            else if (cleanInput.Contains("ask"))
+            else if (userInput.Contains("ask"))
             {
-                TypeEffect(" You can ask: 'What is your purpose?', 'How are you?', or about security topics.");
+                TypeEffect(" You can ask: 'What is your purpose?', 'How are you?', or about security topics.", ConsoleColor.Red);
             }
-            else if (cleanInput.Contains("hey"))
+            else if (userInput.Contains("hey"))
             {
-                TypeEffect(" Hello back at you, are you ready to ask me a question.");
+                TypeEffect(" Hello back at you, are you ready to ask me a question.",ConsoleColor.Red);
             }
-            else if (cleanInput.Contains("Messi"))
-            {
-                TypeEffect(" Messi is the GOAT but lets talk about cybersecurity.");
-            }
-            else if (cleanInput.Contains("Ronaldo")) {
-                TypeEffect(" Bro...");
-                TypeEffect("Can you ask me a good question, perferably about cybersercurity.");
-            } else
+             else
             {
                 // if user enters input that doesnt contain any key word above
                 TypeEffect(" I didn't quite understand that. Could you rephrase your question or ask about a different topic?", ConsoleColor.Yellow);
