@@ -65,11 +65,11 @@ namespace CybersecurityBot
             }
 
             // Responses to inputs
-            if (cleanInput.Contains("how are you")|| cleanInput.Contains("how are you doing?"))
+            if (cleanInput.Contains("how are you") || cleanInput.Contains("how are you doing?"))
             {
                 TypeEffect($" I am good and running smoothly, {userName}!", ConsoleColor.Red);
             }
-            else if (cleanInput.Contains("purpose")|| cleanInput.Contains("what do you do?"))
+            else if (cleanInput.Contains("purpose") || cleanInput.Contains("what do you do?"))
             {
                 TypeEffect(" My purpose is to help you with cybersecurity saftey, naybe you'll learn something new.", ConsoleColor.Red);
             }
@@ -89,10 +89,18 @@ namespace CybersecurityBot
             {
                 TypeEffect(" You can ask: 'What is your purpose?', 'How are you?', or about security topics.");
             }
-            else if (cleanInput.Contains("hey")) {
-                TypeEffect(" Hello back at you, are you ready to ask me a question");
+            else if (cleanInput.Contains("hey"))
+            {
+                TypeEffect(" Hello back at you, are you ready to ask me a question.");
             }
-            else
+            else if (cleanInput.Contains("Messi"))
+            {
+                TypeEffect(" Messi is the GOAT but lets talk about cybersecurity.");
+            }
+            else if (cleanInput.Contains("Ronaldo")) {
+                TypeEffect(" Bro...");
+                TypeEffect("Can you ask me a good question, perferably about cybersercurity.");
+            } else
             {
                 // if user enters input that doesnt contain any key word above
                 TypeEffect(" I didn't quite understand that. Could you rephrase your question or ask about a different topic?", ConsoleColor.Yellow);
